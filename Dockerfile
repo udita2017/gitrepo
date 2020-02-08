@@ -1,11 +1,11 @@
 #specify a base image
 
-FROM alpine
-
+FROM node:alpine
+WORKDIR /usp/app
 #Install some Dependencies
-
-Run npm Install
-
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
 #Default Command
 
 CMD["npm","start"]
